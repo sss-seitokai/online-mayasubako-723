@@ -1,0 +1,52 @@
+{% extends 'meyasubako/owner/owner_view.html' %}
+
+{% block content %}
+
+<main>
+
+  <div class="top">
+    <div class="status">
+      {% if opinions.status == 1 %}
+      <i class="fa-solid fa-people-line" style="color: #f3a78f;"></i><p>協議中</p> 
+    
+      {% elif opinions.status == 2 %}
+      <i class="fa-solid fa-pause" style="color: #749ce3;margin-left: 10px;"></i> <p>回答待ち</p>
+
+      {% elif opinions.status == 3 %}
+      <i class="fa-solid fa-check" style="color: grey;"></i><p>解決済み</p>
+    
+      {% endif %}
+    </div>
+  
+    <h1>{{ opinions.title }}</h1>
+  </div>
+
+    
+<div class="content">
+  <p>{{ opinions.content }}</p>
+</div>
+  
+  <p><a href="{% url 'meyasubako:answer' opinions.id %}" class="title" style="text-decoration: none; display: block; margin-top: 50px;">意見に回答する</a></p>
+  
+  <div class="detail_timelines">
+
+    {% for timeline in timelines %}
+    
+    <h2>{{ timeline.title }}</h2>
+    <p>'{{ timeline.date_added | date:'y/m/d' }}</p>
+    <p>{{ timeline.content }}</p>
+    <p><a href="{% url 'meyasubako:edit' timeline.id %}">編集</a></p>
+    <p><a href="{% url 'meyasubako:delete' timeline.id %}">削除</a></p>
+    
+    {% empty %}
+    
+    <p style="margin:auto;">この意見は現在執行部で検討中です。しばしお待ちください</p>
+    
+    {% endfor %}
+
+  </div>
+
+</main>
+
+
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% extends 'meyasubako/owner/owner_view.html' %}
+
+{% block content %}
+
+<main>
+
+  <section class="timelines">
+    <h1 class="title" style="margin-top: 120px;">目安箱の意見たち</h1>
+  
+    {% for opinion in opinions %}
+    
+    <div class="timeline{{opinion.status}}">
+      <p class="date_added">'{{opinion.date_added|date:'y/m/d'}}</p>
+  
+      <div class="check">
+  
+      {% if opinion.status == 1 %}
+      <i class="fa-solid fa-people-line"></i>
+  
+      {% elif opinion.status == 2 %}
+      <i class="fa-solid fa-pause"></i>
+  
+      {% else %}
+      <i class="fa-solid fa-check"></i>
+  
+      {% endif %}
+  
+      </div>  
+      <h1 class="opinion_title2">{{opinion.title}}</h1>
+      <span class="arrow"><a href="{% url 'meyasubako:owner_detail' opinion.id %}"><p>→</p></a></span> 
+      <span id="arrow"><a href="{% url 'meyasubako:answer' opinion.id %}"><p style="margin-left: 10px;">A</p></a></span>
+    </div>
+    
+    {% empty %}
+    <p>意見はまだありません</p>
+    
+    {% endfor %}
+  </section>
+</main>
+
+
+
+{% endblock content %}

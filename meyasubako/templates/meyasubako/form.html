@@ -1,0 +1,23 @@
+{% extends 'meyasubako/view.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+
+<main style="margin-top: 150px;">
+  <h1 class="title">オンライン目安箱フォーム</h1>
+  <form action="{% url 'meyasubako:form' %}" method='POST' id="form">
+    {% csrf_token %}
+  
+    <p>タイトル(15字以内)<br>{{ form.title|add_class:'form_text' }}</p>
+    <!-- 詳しいことはhttps://qiita.com/nishi-24/items/bf6a758d4bdbb0294fb4にある -->
+    <p>本文<br>{{ form.content|add_class:'form_sentence' }}</p>
+    <p>お名前(「匿名希望」さんもOK) <br> {{ form.who|add_class:'form_text' }}</p>
+    <p>生徒番号(5桁のやつ) <br>{{ form.student_number|add_class:'form_text' }}</p>
+
+    <!-- <p><input type="checkbox" required>利用規約に同意しました</p> -->
+  
+    <button name='submit' class="submit_button">GO!</button></form>
+
+</main>
+
+{% endblock content %}

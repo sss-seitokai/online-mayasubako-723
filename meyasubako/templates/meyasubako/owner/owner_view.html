@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>オンライン目安箱</title>
+  <link rel="stylesheet" href="{% static 'css/view.css' %}">
+  <script src="https://kit.fontawesome.com/cc22dab103.js" crossorigin="anonymous"></script>
+</head>
+<body>
+ <header>
+   <a href="{% url 'meyasubako:owner' %}"><h1>【管理者ページ】オンライン目安箱</h1></a>
+ </header>
+
+ <div id="button">
+  <a href="{% url 'meyasubako:index' %}">    
+    <i class="fa-solid fa-paper-plane" id="plane"></i>
+  </a>
+  <p>ユーザー</p>
+</div>
+
+ {% block content %}{% endblock content %}
+
+ <footer>©Sagamihara Secondary School</footer>
+</body>
+</html>

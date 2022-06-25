@@ -1,0 +1,51 @@
+{% extends 'meyasubako/view.html' %}
+
+{% block content %}
+
+<main style="margin-top: 150px;">
+
+  <div class="top">
+    <div class="status">
+      {% if opinions.status == 1 %}
+      <i class="fa-solid fa-people-line" style="color: #f3a78f;"></i><p>協議中</p> 
+    
+      {% elif opinions.status == 2 %}
+      <i class="fa-solid fa-pause" style="color: #749ce3;margin-left: 10px;"></i> <p>回答待ち</p>
+
+      {% elif opinions.status == 3 %}
+      <i class="fa-solid fa-check" style="color: grey;"></i><p>解決済み</p>
+    
+      {% endif %}
+    </div>
+  
+    <h1>{{ opinions.title }}</h1>
+  </div>
+
+  
+<div class="content">
+  <p>{{ opinions.content }}</p>
+</div>
+
+<h1 class="title">議事録と経過</h1>
+
+<div class="detail_timelines">
+
+
+  {% for timeline in timelines %}
+  
+  <h2 class="timeline_title">{{ timeline.title }}</h2>
+  <p>'{{ timeline.date_added|date:'y/m/d' }}</p>
+  <p>{{ timeline.content }}</p>
+  
+  {% empty %}
+  
+  <p>この意見は現在執行部で検討中です。しばしお待ちください</p>
+  
+  {% endfor %}
+   
+  </main>
+</div>
+
+
+
+{% endblock content %}

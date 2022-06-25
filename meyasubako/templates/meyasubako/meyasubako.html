@@ -1,0 +1,80 @@
+{% extends 'meyasubako/view.html' %}
+
+{% block content %}
+<div id="button">
+  <a href="{% url 'meyasubako:form' %}">    
+    <i class="fa-solid fa-paper-plane" id="plane"></i>
+  </a>
+  <p>フォームはこちら</p>
+</div>
+
+<div id="emotional_message">
+  <h1>オンライン目安箱</h1>
+  <h2>あなたの意見が、毎日を変える</h2>
+</div>
+
+<main>
+
+  <section class="timelines">
+    <h1 class="title">目安箱の意見たち</h1>
+
+    {% for opinion in opinions %}
+    
+    <div class="timeline{{opinion.status}}">
+      <p class="date_added">'{{opinion.date_added|date:'y/m/d'}}</p>
+
+      <div class="check">
+
+      {% if opinion.status == 1 %}
+      <i class="fa-solid fa-people-line"></i>
+
+      {% elif opinion.status == 2 %}
+      <i class="fa-solid fa-pause"></i>
+
+      {% else %}
+      <i class="fa-solid fa-check"></i>
+
+      {% endif %}
+
+      </div>  
+      <h1 class="opinion_title">{{opinion.title}}</h1>
+      <span id="arrow"><a href="{% url 'meyasubako:detail' opinion.id %}"><p>→</p></a></span>
+    </div>
+    
+    {% empty %}
+    <p>意見はまだありません</p>
+    
+    {% endfor %}
+  </section>
+ 
+<section>
+  
+  <h1 class="title">タイムラインの見方</h1>
+  
+  <div class="how_to_timeline">
+
+    <div class="flex">
+      <i class="fa-solid fa-people-line sample"></i>
+      <h3 style="color: #f3a78f;">協議中</h3>
+      <p>現在執行部内で協議中です。</p>
+    </div>
+      
+    <div class="flex">
+      <i class="fa-solid fa-pause sample"></i>
+      <h3 style="color: #749ce3;">回答待ち</h3>
+      <p>先生や担当委員会に意見を求めています。</p>
+    </div>
+
+      <div class="flex">
+        <i class="fa-solid fa-check sample"></i>
+        <h3 style="color: grey;">解決済み</h3>
+        <p>協議は終わりました。</p>
+      </div>
+  
+  </div>
+
+</section>
+
+
+</main>
+{% endblock content %}

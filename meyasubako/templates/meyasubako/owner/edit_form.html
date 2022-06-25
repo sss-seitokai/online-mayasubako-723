@@ -1,0 +1,20 @@
+{% extends 'meyasubako/owner/owner_view.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<main style="margin-top: 120px;">
+  <form action="{% url 'meyasubako:edit' timeline_id %}" method='POST'>
+    {% csrf_token %}
+    <p>タイトル</p>
+    {{ form.title|add_class:'form_text' }}
+    <p>本文</p>
+    <p>{{ form.content|add_class:'form_sentence' }}</p>
+    <p>ステータス(1:協議中 2:回答待ち 3:解決済み)</p>
+    <p>{{ status_form.status }}</p>
+    <button name="submit" class="submit_button">回答</button>
+  </form>
+
+</main>
+
+{% endblock content %}
