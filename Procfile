@@ -1,1 +1,1 @@
-web: gunicorn Online-Meyasubako.wsgi
+web: gunicorn online-meyasubako.wsgi
