@@ -1,1 +1,2 @@
-web: gunicorn online-meyasubako.wsgi  --log-file -
+web: gunicorn online_meyasubako.wsgi  --log-file -
+
