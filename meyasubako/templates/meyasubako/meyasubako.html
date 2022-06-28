@@ -1,5 +1,5 @@
 {% extends 'meyasubako/view.html' %}
-
+{% load static %}
 {% block content %}
 <div id="button">
   <a href="{% url 'meyasubako:form' %}">    
@@ -16,30 +16,35 @@
 <main>
 
   <section class="timelines">
-    <h1 class="title">目安箱の意見たち</h1>
+    <h1 class="title">目安箱の意見一覧</h1>
 
     {% for opinion in opinions %}
+    <a href="{% url 'meyasubako:detail' opinion.id %}" class="arrowa">
     
     <div class="timeline{{opinion.status}}">
       <p class="date_added">'{{opinion.date_added|date:'y/m/d'}}</p>
 
-      <div class="check">
+      <div class="bottom">
 
-      {% if opinion.status == 1 %}
-      <i class="fa-solid fa-people-line"></i>
+          {% if opinion.status == 1 %}
+          <img src="{% static 'images/discuss.png' %}" alt="先生方" class="teachers">
+  
+          {% elif opinion.status == 2 %}
+          <img src="{% static 'images/teacher.png' %}" alt="先生方" class="teachers">
+  
+          {% else %}
+          <img src="{% static 'images/check.png' %}" alt="先生方" class="teachers">
+  
+          {% endif %}
+  
+        <h1 class="opinion_title">{{opinion.title}}</h1>
+  
+        <img src="{% static 'images/arrow.png' %}" alt="先生方" class="arrow">
 
-      {% elif opinion.status == 2 %}
-      <i class="fa-solid fa-pause"></i>
+      </div>
 
-      {% else %}
-      <i class="fa-solid fa-check"></i>
-
-      {% endif %}
-
-      </div>  
-      <h1 class="opinion_title">{{opinion.title}}</h1>
-      <span id="arrow"><a href="{% url 'meyasubako:detail' opinion.id %}"><p>→</p></a></span>
     </div>
+    </a>
     
     {% empty %}
     <p>意見はまだありません</p>
@@ -54,19 +59,19 @@
   <div class="how_to_timeline">
 
     <div class="flex">
-      <i class="fa-solid fa-people-line sample"></i>
+      <img src="{% static 'images/discuss-ao.png' %}" alt="協議中" class="sample">
       <h3 style="color: #f3a78f;">協議中</h3>
       <p>現在執行部内で協議中です。</p>
     </div>
       
     <div class="flex">
-      <i class="fa-solid fa-pause sample"></i>
+      <img src="{% static 'images/teacher-ao.png' %}" alt="回答待ち" class="sample">
       <h3 style="color: #749ce3;">回答待ち</h3>
       <p>先生や担当委員会に意見を求めています。</p>
     </div>
 
       <div class="flex">
-        <i class="fa-solid fa-check sample"></i>
+        <img src="{% static 'images/check-ao.png' %}" alt="解決済み" class="sample">
         <h3 style="color: grey;">解決済み</h3>
         <p>協議は終わりました。</p>
       </div>
@@ -74,7 +79,6 @@
   </div>
 
 </section>
-
 
 </main>
 {% endblock content %}
