@@ -1,24 +1,26 @@
 {% extends 'meyasubako/view.html' %}
 
+{% load static %}
+
 {% block content %}
 
-<main style="margin-top: 150px;">
+<main id="main_detail">
 
   <div class="top">
     <div class="status">
       {% if opinions.status == 1 %}
-      <i class="fa-solid fa-people-line" style="color: #f3a78f;"></i><p>協議中</p> 
+      <img src="{% static 'images/discuss-ao.png' %}" alt="協議中" class="detail-sample"><p>協議中</p> 
     
       {% elif opinions.status == 2 %}
-      <i class="fa-solid fa-pause" style="color: #749ce3;margin-left: 10px;"></i> <p>回答待ち</p>
+      <img src="{% static 'images/teacher-ao.png' %}" alt="回答待ち" class="detail-sample"><p>回答待ち</p>
 
       {% elif opinions.status == 3 %}
-      <i class="fa-solid fa-check" style="color: grey;"></i><p>解決済み</p>
+      <img src="{% static 'images/check-ao.png' %}" alt="解決済み" class="detail-sample"><p>解決済み</p>
     
       {% endif %}
     </div>
   
-    <h1>{{ opinions.title }}</h1>
+    <h1 id="detail_title">{{ opinions.title }}</h1>
   </div>
 
   

@@ -17,6 +17,10 @@ header{
   z-index: 90;
 }
 
+.detail-sample{
+  width: 10vw;
+}
+
 #header_div{
   position: fixed;
   box-sizing: border-box;
@@ -136,6 +140,9 @@ a:visited{
   z-index: 2;
 }
 
+#main_detail{
+  margin-top: 150px;
+}
 
 .timeline1{
   background-color: #f3a78f;
@@ -205,7 +212,6 @@ section{
   margin-bottom: 50px;
 }
 
-
 #plane{
   color: #00004d;
   position: relative;
@@ -251,7 +257,7 @@ section{
 }
 
 .sample{
-  width: 40vw;
+  width: 20vw;
   margin: 0;
 }
 
@@ -279,6 +285,7 @@ section{
   border-width: 3px;
   border-color: #00004d;
   height: fit-content;
+  margin-bottom: 50px;
 }
 
 .content p{
@@ -348,6 +355,11 @@ footer{
   margin: auto;
 }
 
+.status p {
+  margin-top: 0;
+  text-align: center;
+}
+
 @media screen and (max-width:480px){
   .how_to_timeline {
     display: block;
@@ -370,16 +382,19 @@ footer{
   .timeline1{
     display: block;
     height: 100px;
+    margin-top: 4px;
   }
 
   .timeline2{
     display: block;
     height: 100px;
+    margin-top: 4px;
   }
   
   .timeline3{
     display: block;
     height: 100px;
+    margin-top: 4px;
   }
 
   .timelines{
@@ -397,6 +412,7 @@ footer{
     border-bottom: solid;
     border-color: white;
     margin-bottom: 6px;
+    margin-top: 6px;
   }
 
   .buttom{
@@ -408,7 +424,7 @@ footer{
   }
 
   .opinion_title{
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .arrow{
@@ -422,5 +438,21 @@ footer{
     width: 92%;
     margin: auto;
     margin-top: 0%;
+  }
+
+  .sample{
+    width: 40vw;
+    margin: 0;
+  }
+
+  #main_detail{
+    margin-top: 120px;
+  }
+
+  .top h1{
+    font-size: 2rem;
+  }
+  .detail-sample{
+    width: 20vw;
   }
 }

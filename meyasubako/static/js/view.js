@@ -12,3 +12,13 @@
 // resizeWindow();
 
 // window.addEventListener('resize', resizeWindow);
+
+// const detail_title_size = () =>{
+//   let textElem = document.getElementById("detail_title");
+//   let textLength = textElem.textContent.length;
+//   let textSize = floor(100/textLength);
+//   textElem.style.fontSize = textSize + '%';
+//   console.log('complete!')
+// }
+
+// detail_title_size();
