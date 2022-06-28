@@ -297,7 +297,7 @@ section{
 .form_text{
   margin-top: 8px;
   font-size: 1.2rem;
-  width: 100%;
+  width: 75vw;
   height: 1.5rem;
   color: #00004d;
   font-weight: normal;
@@ -307,7 +307,7 @@ section{
   color: #00004d;
   margin-top: 8px;
   font-size: 1.2rem;
-  width: 100%;
+  width: 75vw;
   height: 200px;
   text-align: left;
   white-space: pre-wrap;
@@ -324,7 +324,7 @@ section{
 }
 
 #form{
-  width: 70%;
+  width: fit-content;
   margin: auto;
 }
 
