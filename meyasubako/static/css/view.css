@@ -257,7 +257,7 @@ section{
 }
 
 .sample{
-  width: 20vw;
+  width: 12vw;
   margin: 0;
 }
 
@@ -382,19 +382,19 @@ footer{
   .timeline1{
     display: block;
     height: 100px;
-    margin-top: 4px;
+    margin-top: 10px;
   }
 
   .timeline2{
     display: block;
     height: 100px;
-    margin-top: 4px;
+    margin-top: 10px;
   }
   
   .timeline3{
     display: block;
     height: 100px;
-    margin-top: 4px;
+    margin-top: 10px;
   }
 
   .timelines{
