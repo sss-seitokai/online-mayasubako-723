@@ -9,7 +9,7 @@ class Form(forms.ModelForm):
     widgets = {
       'title':forms.TextInput(attrs={'placeholder':'例)〇〇の修理について'}),
       'content':forms.Textarea(attrs={'placeholder':'本文をお書きください'}),
-      'who':forms.TextInput(attrs={'placeholder':'中等太郎'}),
+      'who':forms.TextInput(attrs={'placeholder':'7年E組中等太郎'}),
       'student_number':forms.NumberInput(attrs={'placeholder':'00000'}),
     }
 
