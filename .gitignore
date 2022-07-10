@@ -1,4 +1,5 @@
 __pycache__
 .DS_Store
 local_settings.py
-django 
+django
+*.sqlite3
