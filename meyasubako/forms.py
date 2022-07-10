@@ -5,7 +5,7 @@ class Form(forms.ModelForm):
   class Meta:
     model = Opinion
     fields = ['title','content','who','student_number']
-    labels = {'title':'タイトル(〇〇の改善要求など)','content':'本文','who':'お名前(匿名希望の場合は「匿名希望」)','student_number':'生徒番号'}
+    labels = {'title':'タイトル(〇〇の改善要求など)','content':'本文','who':'クラスお名前(匿名希望の場合は「匿名希望」)','student_number':'生徒番号'}
     widgets = {
       'title':forms.TextInput(attrs={'placeholder':'例)〇〇の修理について'}),
       'content':forms.Textarea(attrs={'placeholder':'本文をお書きください'}),
