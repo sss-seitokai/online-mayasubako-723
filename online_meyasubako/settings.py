@@ -66,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
             ],
         },
     },
@@ -83,6 +84,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
@@ -132,10 +134,6 @@ STATICFILES_DIRS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
-
-DEBUG = False
-
 try:
     # 存在する場合、ローカルの設定読み込み
     from .settings_local import *
@@ -163,4 +161,8 @@ if not DEBUG:
 
     MIDDLEWARE += [
         'whitenoise.middleware.WhiteNoiseMiddleware',
-    ]    # HerokuのConfigを読み込み
+    ] 
+    
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '783480006906-ubcrouqd8d9rh6lp7th20v8i31hd8iae.apps.googleusercontent.com' 
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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' 

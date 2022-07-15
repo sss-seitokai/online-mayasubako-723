@@ -364,6 +364,12 @@ footer{
   margin-right: auto;
 }
 
+.answer{
+  width: 10%;
+  line-height: 1;
+  font-size: 10%;
+}
+
 @media screen and (max-width:480px){
   .how_to_timeline {
     display: block;

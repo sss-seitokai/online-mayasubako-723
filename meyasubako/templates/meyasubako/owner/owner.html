@@ -1,6 +1,11 @@
 {% extends 'meyasubako/owner/owner_view.html' %}
-
+{% load static %}
 {% block content %}
+
+<div id="emotional_message">
+  <h1>管理者ページ</h1>
+  <h2>あなたの回答が、学校を変える</h2>
+</div>
 
 <main>
 
@@ -8,28 +13,31 @@
     <h1 class="title" style="margin-top: 120px;">目安箱の意見たち</h1>
   
     {% for opinion in opinions %}
+    <a href="{% url 'meyasubako:answer' opinion.id %}" class="arrowa">
     
     <div class="timeline{{opinion.status}}">
       <p class="date_added">'{{opinion.date_added|date:'y/m/d'}}</p>
   
-      <div class="check">
+      <div class="bottom">
   
       {% if opinion.status == 1 %}
-      <i class="fa-solid fa-people-line"></i>
+        <img src="{% static 'images/discuss.png' %}" alt="先生方" class="teachers">
+
+        {% elif opinion.status == 2 %}
+        <img src="{% static 'images/teacher.png' %}" alt="先生方" class="teachers">
+
+        {% else %}
+        <img src="{% static 'images/check.png' %}" alt="先生方" class="teachers">
+
+        {% endif %}
   
-      {% elif opinion.status == 2 %}
-      <i class="fa-solid fa-pause"></i>
-  
-      {% else %}
-      <i class="fa-solid fa-check"></i>
-  
-      {% endif %}
-  
+        <h1 class="opinion_title">{{opinion.title}}</h1>
+
+        <img src="{% static 'images/arrow.png' %}" alt="先生方" class="arrow">
       </div>  
-      <h1 class="opinion_title2">{{opinion.title}}</h1>
-      <span class="arrow"><a href="{% url 'meyasubako:owner_detail' opinion.id %}"><p>→</p></a></span> 
-      <span id="arrow"><a href="{% url 'meyasubako:answer' opinion.id %}"><p style="margin-left: 10px;">A</p></a></span>
+
     </div>
+    </a>
     
     {% empty %}
     <p>意見はまだありません</p>
