@@ -21,10 +21,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%cqnj&mh!1&z!w-$aj9nfn5dnnw#=g7dr(&0&2jan66(&m%ycu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -44,13 +43,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  
 ]
 
 ROOT_URLCONF = 'online_meyasubako.urls'
@@ -165,3 +164,19 @@ if not DEBUG:
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '783480006906-ubcrouqd8d9rh6lp7th20v8i31hd8iae.apps.googleusercontent.com' 
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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' 
+
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+db_from_env = dj_database_url.config(conn_max_age=600,
+ssl_require=True)
+DATABASES['default'].update(db_from_env)
+try:
+ from ..local_settings import *
+except ImportError:
+ pass
+if not DEBUG:
+ SECRET_KEY = 'django-insecure-%cqnj&mh!1&z!w-$aj9nfn5dnnw#=g7dr(&0&2jan66(&m%ycu' #削除したSECRET_KEYをコピペします
+
+import django_heroku
+django_heroku.settings(locals())
