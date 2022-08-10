@@ -171,10 +171,10 @@ DATABASES['default'].update(db_from_env)
 db_from_env = dj_database_url.config(conn_max_age=600,
 ssl_require=True)
 DATABASES['default'].update(db_from_env)
-try:
- from ..local_settings import *
-except ImportError:
- pass
+# try:
+#  from ..local_settings import *
+# except ImportError:
+#  pass
 if not DEBUG:
  SECRET_KEY = 'django-insecure-%cqnj&mh!1&z!w-$aj9nfn5dnnw#=g7dr(&0&2jan66(&m%ycu' #削除したSECRET_KEYをコピペします
 
