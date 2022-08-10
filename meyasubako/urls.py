@@ -13,3 +13,7 @@ urlpatterns = [
   path('edit/<int:timeline_id>',views.edit,name='edit'),
   path('delete/<int:timeline_id>',views.delete,name='delete'),
 ]
+
+from meyasubako import views
+
+handler500 = views.my_customized_server_error
