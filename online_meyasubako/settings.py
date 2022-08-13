@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'meyasubako',
     'widget_tweaks',
+    'social_django', 
 ]
 
 MIDDLEWARE = [
@@ -50,9 +51,23 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'social_django.middleware.SocialAuthExceptionMiddleware', 
 ]
 
 ROOT_URLCONF = 'online_meyasubako.urls'
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.open_id.OpenIdAuth',  # OpenId用
+    'social_core.backends.google.GoogleOpenId',  # Google OpenId用
+    'social_core.backends.google.GoogleOAuth2',  # Google OAuth2用
+
+    'social_core.backends.github.GithubOAuth2',  # Github用
+    'social_core.backends.twitter.TwitterOAuth',  # Twitter用
+    'social_core.backends.facebook.FacebookOAuth2',  # Facebook用
+
+    'django.contrib.auth.backends.ModelBackend',  # デフォルトバックエンド、必須。
+)
 
 TEMPLATES = [
     {
@@ -66,6 +81,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
 
+                'social_django.context_processors.backends',  # 追加
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -180,3 +197,11 @@ if not DEBUG:
 
 import django_heroku
 django_heroku.settings(locals())
+
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '894048995969-douuhpena6hkkvnbu1rk8knq0skal9mc.apps.googleusercontent.com'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = '/'
