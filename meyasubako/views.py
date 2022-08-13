@@ -74,4 +74,3 @@ def delete(request,timeline_id):
   time = get_object_or_404(TimeLine,id=timeline_id)
   time.delete()
   return redirect('meyasubako:owner')
-  
