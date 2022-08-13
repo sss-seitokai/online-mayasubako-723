@@ -51,8 +51,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-    'social_django.middleware.SocialAuthExceptionMiddleware', 
 ]
 
 ROOT_URLCONF = 'online_meyasubako.urls'
@@ -205,3 +203,5 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/'
+
+MIDDLEWARE_CLASSES = ['social_django.middleware.SocialAuthExceptionMiddleware',]
