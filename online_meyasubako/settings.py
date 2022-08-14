@@ -205,3 +205,5 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/'
 
 MIDDLEWARE_CLASSES = ['social_django.middleware.SocialAuthExceptionMiddleware',]
+
+ALLOWED_REDIRECT_URI_SCHEMES = ['http','https','social']
