@@ -79,3 +79,5 @@ from django.http import HttpResponseRedirect
 
 def LoginView(request):
   return HttpResponseRedirect('social:begin', dict(backend='google-oauth2'))
+
+
