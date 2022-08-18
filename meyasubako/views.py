@@ -78,4 +78,6 @@ def delete(request,timeline_id):
 from django.http import HttpResponseRedirect
 
 def LoginView(request):
-    return HttpResponseRedirect('social:begin', dict(backend='google-oauth2'))
+  return HttpResponseRedirect('social:begin', dict(backend='google-oauth2'))
+
+

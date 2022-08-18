@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
+    'django.contrib.contenzxttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -204,3 +204,5 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/'
 
 MIDDLEWARE_CLASSES = ['social_django.middleware.SocialAuthExceptionMiddleware',]
+
+ALLOWED_REDIRECT_URI_SCHEMES = ['http','https','social']
