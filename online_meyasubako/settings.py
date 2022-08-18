@@ -196,7 +196,6 @@ if not DEBUG:
 import django_heroku
 django_heroku.settings(locals())
 
-
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '894048995969-douuhpena6hkkvnbu1rk8knq0skal9mc.apps.googleusercontent.com'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
