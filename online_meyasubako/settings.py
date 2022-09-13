@@ -33,11 +33,12 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenzxttypes',
+    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'meyasubako',
+    'users',
     'widget_tweaks',
     'social_django', 
 ]
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'online_meyasubako.urls'
@@ -201,7 +203,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '894048995969-douuhpena6hkkvnbu1rk8knq0skal9mc.a
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = ''
 
 MIDDLEWARE_CLASSES = ['social_django.middleware.SocialAuthExceptionMiddleware',]
 

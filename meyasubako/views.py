@@ -2,13 +2,16 @@ from django.shortcuts import render
 from .models import Opinion,TimeLine
 from django.shortcuts import get_object_or_404, render,redirect
 from .forms import Form,AnswerForm,StatusForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def index(request):
   opinions = Opinion.objects.order_by('date_added').reverse()
   context = {'opinions':opinions}
   return render(request,"meyasubako/meyasubako.html",context)
 
+@login_required
 def detail(request,opinion_id):
   opinions = Opinion.objects.get(id=opinion_id)
   timelines = TimeLine.objects.filter(opinion=opinions).all()

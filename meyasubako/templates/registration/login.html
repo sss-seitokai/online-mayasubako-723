@@ -1,0 +1,9 @@
+{% extends 'meyasubako/view.html' %}
+
+
+{% block content %}
+
+<h1>ログイン</h1>
+<a href="{% url 'social:begin' 'google-oauth2' %}">Googleでログイン</a>
+
+{% endblock content %}
