@@ -14,8 +14,4 @@ urlpatterns = [
   path('owner_detail/<int:opinion_id>',views.owner_detail,name='owner_detail'),
   path('edit/<int:timeline_id>',views.edit,name='edit'),
   path('delete/<int:timeline_id>',views.delete,name='delete'),
-  # path('login/', views.login, name='login'),
-  
-  
-  # path('accounts/profile/', views.index, name='index'),
 ]

@@ -204,7 +204,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = '/'
 
 MIDDLEWARE_CLASSES = ['social_django.middleware.SocialAuthExceptionMiddleware',]
 
