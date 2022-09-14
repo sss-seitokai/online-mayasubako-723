@@ -1,14 +1,25 @@
 {% extends 'meyasubako/view.html' %}
 {% load static %}
 {% block content %}
+
+
 <div id="button">
   <a href="{% url 'meyasubako:form' %}">    
     <i class="fa-solid fa-paper-plane" id="plane"></i>
   </a>
   <p>フォームはこちら</p>
+
 </div>
 
 <div id="emotional_message">
+  {% if user.is_authenticated %}
+<h1>ログインしてますよ</h1>
+<p>{{ user.email }}</p>
+
+{% else %}
+<p>ログインされてません</p>
+
+{% endif %}
   <h1>オンライン目安箱</h1>
   <h2>あなたの意見が、毎日を変える</h2>
 </div>

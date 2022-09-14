@@ -14,9 +14,8 @@ urlpatterns = [
   path('owner_detail/<int:opinion_id>',views.owner_detail,name='owner_detail'),
   path('edit/<int:timeline_id>',views.edit,name='edit'),
   path('delete/<int:timeline_id>',views.delete,name='delete'),
-
-  path('', views.index, name='index'),  # ログイン後に行いたい処理
-  path('login/', views.login, name='login'),
-  path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-  path('oauth/', include('social_django.urls', namespace='social')),  # Social Django用
+  # path('login/', views.login, name='login'),
+  
+  
+  # path('accounts/profile/', views.index, name='index'),
 ]

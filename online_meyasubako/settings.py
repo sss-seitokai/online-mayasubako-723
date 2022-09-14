@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -31,14 +31,14 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'meyasubako',
+    'users',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'meyasubako',
-    'users',
     'widget_tweaks',
     'social_django', 
 ]
@@ -59,7 +59,7 @@ ROOT_URLCONF = 'online_meyasubako.urls'
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.open_id.OpenIdAuth',  # OpenId用
-    'social_core.backends.google.GoogleOpenId',  # Google OpenId用
+    # 'social_core.backends.google.GoogleOpenId',  # Google OpenId用
     'social_core.backends.google.GoogleOAuth2',  # Google OAuth2用
 
     'social_core.backends.github.GithubOAuth2',  # Github用
@@ -179,8 +179,8 @@ if not DEBUG:
     ] 
     
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '783480006906-ubcrouqd8d9rh6lp7th20v8i31hd8iae.apps.googleusercontent.com' 
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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' 
+
+
 
 import dj_database_url
 db_from_env = dj_database_url.config()
@@ -199,11 +199,12 @@ import django_heroku
 django_heroku.settings(locals())
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '894048995969-douuhpena6hkkvnbu1rk8knq0skal9mc.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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' 
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = ''
+LOGIN_REDIRECT_URL = 'index'
 
 MIDDLEWARE_CLASSES = ['social_django.middleware.SocialAuthExceptionMiddleware',]
 
