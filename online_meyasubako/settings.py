@@ -205,6 +205,7 @@ SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE_CLASSES = ['social_django.middleware.SocialAuthExceptionMiddleware',]
 

@@ -2,8 +2,13 @@
 
 
 {% block content %}
+<main>
 
-<h1>ログイン</h1>
-<a href="{% url 'social:begin' 'google-oauth2' %}">Googleでログイン</a>
+  <div id="emotional_message">
+    <h2>ログインページ</h2>
+    <p>くれぐれも、学校のアカウント(@gl.pen-kanagawa.ed.jp)でログインしてください<br>↓↓↓ </p>
+    <a href="{% url 'social:begin' 'google-oauth2' %}"><p style="font-size: 2rem;">Googleでログイン</p> </a>
+  </div>
+</main>
 
 {% endblock content %}
