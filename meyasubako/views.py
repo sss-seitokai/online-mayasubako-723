@@ -19,6 +19,7 @@ def detail(request,opinion_id):
   context={'opinions':opinions ,'timelines':timelines}
   return render(request,"meyasubako/detail.html",context)
 
+@login_required
 def form(request):
   if request.method != 'POST':
     form = Form()
@@ -30,11 +31,13 @@ def form(request):
   context = {'form':form}
   return render(request,'meyasubako/form.html',context)
 
+@login_required
 def owner(request):
   opinions = Opinion.objects.order_by('date_added').reverse()
   context = {'opinions':opinions}
   return render(request,'meyasubako/owner/owner.html',context)
 
+@login_required
 def answer(request,opinion_id):
   opinion = Opinion.objects.get(id=opinion_id)
   if request.method != 'POST':
@@ -52,12 +55,14 @@ def answer(request,opinion_id):
   context = {'form':form,'opinion':opinion,'status_form':status_form}
   return render(request,'meyasubako/owner/answer_form.html',context)
 
+@login_required
 def owner_detail(request,opinion_id):
   opinions = Opinion.objects.get(id=opinion_id)
   timelines = TimeLine.objects.filter(opinion=opinions).all()
   context={'opinions':opinions ,'timelines':timelines}
   return render(request,"meyasubako/owner/owner_detail.html",context)
 
+@login_required
 def edit(request,timeline_id):
   timeline = TimeLine.objects.get(id=timeline_id)
   if request.method != 'POST':
@@ -74,6 +79,7 @@ def edit(request,timeline_id):
   context = {'form':form,'timeline_id':timeline_id,'status_form':status_form}
   return render(request,'meyasubako/owner/edit_form.html',context)
 
+@login_required
 def delete(request,timeline_id):
   time = get_object_or_404(TimeLine,id=timeline_id)
   time.delete()
