@@ -385,6 +385,13 @@ footer{
 .google{
   font-size: 2rem;
 }
+.google a:link{
+  color: #00004d;
+}
+
+.google a:visited{
+  color: #00004d;
+}
 
 
 @media screen and (max-width:480px){
