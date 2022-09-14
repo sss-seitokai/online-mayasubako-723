@@ -42,6 +42,10 @@ header a{
   text-decoration: none;
 }
 
+header a:link{
+  color: white;
+}
+
 header a:visited{
   color: white;
 }
@@ -169,7 +173,6 @@ a:visited{
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
-  color: #f3a78f;
 }
 
 .timeline3{
@@ -379,6 +382,11 @@ footer{
   font-size: 10%;
 }
 
+.google{
+  font-size: 2rem;
+}
+
+
 @media screen and (max-width:480px){
   .how_to_timeline {
     display: block;
@@ -475,4 +483,3 @@ footer{
     width: 20vw;
   }
 }
-

@@ -1,13 +1,17 @@
 {% extends 'meyasubako/view.html' %}
-
+{% load static %}
 
 {% block content %}
 <main>
 
   <div id="emotional_message">
     <h2>ログインページ</h2>
-    <p>くれぐれも、学校のアカウント(@gl.pen-kanagawa.ed.jp)でログインしてください<br>↓↓↓ </p>
-    <a href="{% url 'social:begin' 'google-oauth2' %}"><p style="font-size: 2rem;">Googleでログイン</p> </a>
+    <p>絶対に、学校のアカウント(@gl.pen-kanagawa.ed.jp)でログインしてください<br>↓↓↓ </p>
+
+    <a href="{% url 'social:begin' 'google-oauth2' %}">
+      <div class="google"><p style="font-size: 2rem;">Googleでログイン</p> 
+      </div>
+    </a>
   </div>
 </main>
 
