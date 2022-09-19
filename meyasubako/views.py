@@ -90,4 +90,7 @@ from django.http import HttpResponseRedirect
 def login(request):
   return HttpResponseRedirect('social:begin', dict(backend='google-oauth2'))
 
+@login_required
+def promise(request):
+  return render(request,'meyasubako/promise.html')
 
