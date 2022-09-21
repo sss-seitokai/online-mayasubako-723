@@ -8,12 +8,16 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 @login_required
 def index(request):
+  if if_chuto(request) == True:
+    return redirect('logout')
   opinions = Opinion.objects.order_by('date_added').reverse()
   context = {'opinions':opinions}
   return render(request,"meyasubako/meyasubako.html",context)
 
 @login_required
 def detail(request,opinion_id):
+  if if_chuto(request) == True:
+    return redirect('logout')
   opinions = Opinion.objects.get(id=opinion_id)
   timelines = TimeLine.objects.filter(opinion=opinions).all()
   context={'opinions':opinions ,'timelines':timelines}
@@ -21,6 +25,8 @@ def detail(request,opinion_id):
 
 @login_required
 def form(request):
+  if if_chuto(request) == True:
+    return redirect('logout')
   if request.method != 'POST':
     form = Form()
   else:
@@ -33,12 +39,16 @@ def form(request):
 
 @login_required
 def owner(request):
+  if if_chuto(request) == True:
+    return redirect('logout')
   opinions = Opinion.objects.order_by('date_added').reverse()
   context = {'opinions':opinions}
   return render(request,'meyasubako/owner/owner.html',context)
 
 @login_required
 def answer(request,opinion_id):
+  if if_chuto(request) == True:
+    return redirect('logout')
   opinion = Opinion.objects.get(id=opinion_id)
   if request.method != 'POST':
     form = AnswerForm()
@@ -57,6 +67,8 @@ def answer(request,opinion_id):
 
 @login_required
 def owner_detail(request,opinion_id):
+  if if_chuto(request) == True:
+    return redirect('logout')
   opinions = Opinion.objects.get(id=opinion_id)
   timelines = TimeLine.objects.filter(opinion=opinions).all()
   context={'opinions':opinions ,'timelines':timelines}
@@ -64,6 +76,8 @@ def owner_detail(request,opinion_id):
 
 @login_required
 def edit(request,timeline_id):
+  if if_chuto(request) == True:
+    return redirect('logout')
   timeline = TimeLine.objects.get(id=timeline_id)
   if request.method != 'POST':
     form = AnswerForm(instance=timeline)
@@ -81,6 +95,8 @@ def edit(request,timeline_id):
 
 @login_required
 def delete(request,timeline_id):
+  if if_chuto(request) == True:
+    return redirect('logout')
   time = get_object_or_404(TimeLine,id=timeline_id)
   time.delete()
   return redirect('meyasubako:owner')
@@ -92,5 +108,14 @@ def login(request):
 
 @login_required
 def promise(request):
+  if if_chuto(request) == True:
+    return redirect('logout')
   return render(request,'meyasubako/promise.html')
 
+def if_chuto(request):
+  user = request.user
+  print(user.email[0:4])
+  if str(user.email[0:4]) != '0127':
+    return True
+  else:
+    return False
