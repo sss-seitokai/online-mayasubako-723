@@ -114,8 +114,9 @@ def promise(request):
 
 def if_chuto(request):
   user = request.user
-  print(user.email[0:4])
-  if str(user.email[0:4]) != '0127':
-    return True
-  else:
+  if str(user.email[0:4]) == '0127':
     return False
+  elif str(user.email[0:9]) == 'sss-kanri':
+    return False
+  else:
+    return True
