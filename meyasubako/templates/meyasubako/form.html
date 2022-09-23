@@ -10,7 +10,7 @@
   
     <p>タイトル(15字以内)<br>{{ form.title|add_class:'form_text' }}</p>
     <!-- 詳しいことはhttps://qiita.com/nishi-24/items/bf6a758d4bdbb0294fb4にある -->
-    <p>本文 ※只今改行が反映されないので注意してください<br>{{ form.content|add_class:'form_sentence' }}</p>
+    <p>本文 ※只今改行が反映されないので注意してください<br>{{ form.content| add_class:'form_sentence'}}</p>
     <p>学年クラス番号または「匿名希望」 ※執行部以外の人には見えないのでご安心ください <br> {{ form.who|add_class:'form_text' }}</p>
     <input type="hidden" value="{{user.email}}" name="student_email">
 
