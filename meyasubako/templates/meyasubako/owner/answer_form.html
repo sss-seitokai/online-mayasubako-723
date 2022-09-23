@@ -5,6 +5,8 @@
 
 <main style="margin-top: 120px;">
   <h2>「{{opinion.title}}」に回答する</h2>
+  <p>{{ opinion.content }}</p>
+
   <form action="{% url 'meyasubako:answer' opinion.id %}" method='POST'>
     {% csrf_token %}
     <p>タイトル</p>
