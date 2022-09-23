@@ -3,7 +3,7 @@
 {% block content %}
 
 
-<main style="margin-top: 150px;">
+<main id="form_main">
   <h1 class="title">オンライン目安箱フォーム</h1>
   <form action="{% url 'meyasubako:form' %}" method='POST' id="form">
     {% csrf_token %}

@@ -330,6 +330,12 @@ section{
   line-height: 1.2;
 }
 
+#form_main{
+  margin:auto;
+  margin-top: 150px;
+  width: fit-content;
+}
+
 .submit_button{
   background-color: #00004d;
   color: white;
@@ -340,7 +346,7 @@ section{
 }
 
 #form{
-  width: fit-content;
+  width: 75vw;
   margin: auto;
 }
 
