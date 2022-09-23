@@ -11,7 +11,7 @@
     <p>タイトル(15字以内)<br>{{ form.title|add_class:'form_text' }}</p>
     <!-- 詳しいことはhttps://qiita.com/nishi-24/items/bf6a758d4bdbb0294fb4にある -->
     <p>本文<br>{{ form.content|add_class:'form_sentence' }}</p>
-    <p>お名前(「匿名希望」さんもOK) <br> {{ form.who|add_class:'form_text' }}</p>
+    <p>学年クラス番号または「匿名希望」 <br> {{ form.who|add_class:'form_text' }}</p>
     <input type="hidden" value="{{user.email}}" name="student_email">
 
     <!-- <p><input type="checkbox" required>利用規約に同意しました</p> -->
