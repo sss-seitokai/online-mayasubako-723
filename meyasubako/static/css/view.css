@@ -38,6 +38,7 @@ header{
   width: 100%;
 }
 
+
 header a{
   text-decoration: none;
 }
@@ -129,7 +130,7 @@ a:visited{
 .title{
   width: fit-content;
   text-align: center;
-  border: #00004d;
+  border: 244C66;
   border-bottom: solid;
   border-width: 2px;
   margin: auto;
